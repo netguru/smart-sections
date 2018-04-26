@@ -8,7 +8,7 @@ export function recalculateSections(
 ) {
   return Object.keys(coordinates).map((sectionName, i, arr) => {
     const section = coordinates[sectionName];
-    let active;
+    let active = false;
     const isOnReadingLine =
       section.top <= readingLine && section.bottom > readingLine;
     const isTheFirstSection = i === 0;
@@ -21,22 +21,13 @@ export function recalculateSections(
       isOnFixedReadingLine || section.top < fixedReadingLine;
     const isInOrBelowFixedReadingLine =
       isOnFixedReadingLine || section.top > fixedReadingLine;
-    if (isOnReadingLine) {
-      active = true;
-    } else if (
-      isTheFirstSection &&
-      isReadingLineAbove &&
-      isInOrAboveFixedReadingLine
+    const isTheFirstSection
+    if (
+      isOnReadingLine ||
+      (isTheFirstSection && isReadingLineAbove && isInOrAboveFixedReadingLine) ||
+      (isTheLastSection && isReadingLineBelow && isInOrBelowFixedReadingLine)
     ) {
       active = true;
-    } else if (
-      isTheLastSection &&
-      isReadingLineBelow &&
-      isInOrBelowFixedReadingLine
-    ) {
-      active = true;
-    } else {
-      active = false;
     }
     const yScrollPoint = calculateScrollPoint(sections, sectionName);
     return {
