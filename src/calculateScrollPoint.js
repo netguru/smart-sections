@@ -1,6 +1,6 @@
-import { getDocumentHeight, getViewportHeight } from "./domUtils";
-import { calculateReadingLine } from "./readingLine";
-import { coordinatesFromSection } from "./coordinatesFromSections";
+import { getDocumentHeight, getViewportHeight } from './domUtils';
+import { calculateReadingLine } from './readingLine';
+import { coordinatesFromSection } from './coordinatesFromSections';
 
 export function calculateScrollPoint(sections, sectionName) {
   const viewportHeight = getViewportHeight();

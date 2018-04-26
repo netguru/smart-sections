@@ -1,8 +1,7 @@
-import { recalculateSections } from "./recalculateSections";
-import { coordinatesFromSections } from "./coordinatesFromSections";
-import { calculateFixedReadingLine, calculateReadingLine } from "./readingLine";
-import { getScrollTop, getViewportHeight, getDocumentHeight } from "./domUtils";
-
+import { recalculateSections } from './recalculateSections';
+import { coordinatesFromSections } from './coordinatesFromSections';
+import { calculateFixedReadingLine, calculateReadingLine } from './readingLine';
+import { getScrollTop, getViewportHeight, getDocumentHeight } from './domUtils';
 
 export function recalculate(sections) {
   const scrollTop = getScrollTop();
